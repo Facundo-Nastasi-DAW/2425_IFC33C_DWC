@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function suma(a, b){
+            return a + b;
+        }
+
+        console.log(suma(5, 9));
+
+        var a = suma(5, 9);
+        console.log(a);
+
+        var b = suma;
+        var c = b(4,5);
+        console.log(b);
+        console.log(c);
+
+        function Persona(nombre, apellidos){
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+        }
+
+        persona1 = new Persona("Facundo", "Nastasi");
+        console.log(persona1);
+
+        var a = function() {
+            return "Hola";
+        }
+
+        var b = function(x) {
+            return "Hola " + x;
+        }
+
+        console.log(a());
+        console.log(b("·$%&&/())==)"));
+
+        () => {
+            return "Hola";
+        }
+
+        (x) => {
+            return "Hola " + x;
+        }
+
+        
+
+    </script>
+</body>
+</html>

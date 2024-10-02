@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var frutas= ["Manzana", "Pera", "Plátano"];
+        console.log(frutas);
+        frutas.push("Kiwi");
+        console.log(frutas);
+
+        var a = frutas.pop;
+        console.log(frutas);
+        console.log(a);
+
+        frutas.unshift("Mango");
+        console.log(frutas, frutas[0]);
+        var b = frutas.shift();
+        console.log(frutas, frutas[0]);
+        console.log(b);
+
+        var tam = frutas.length();
+        console.log(tam);
+
+        delete frutas[1]; // no recomendado
+        console.log(frutas);
+
+        frutas.splice(1,1);
+        console.log(frutas, frutas[1]);
+
+        frutas.sort
+
+    </script>
+</body>
+</html>
