@@ -146,7 +146,7 @@ button {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    row-gap: 10px;
+    gap: 2rem;
 }
 
 h2 {
