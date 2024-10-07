@@ -17,29 +17,47 @@ class Nota {
     */
 }
 
-const partitures = [
-    {   
-        nom: 'Himno de la alegría', 
-        notes:[
-            new Nota('Si', 'natural'),
-            new Nota('Si', 'natural'),
-            new Nota('Do', 'natural'),
-            new Nota('Re', 'natural'),
-            new Nota('Re', 'natural'),
-            new Nota('Do', 'natural'),
-            new Nota('Si', 'natural'),
-            new Nota('La', 'natural'),
-            new Nota('Sol', 'natural'),
-            new Nota('Sol', 'natural'),
-            new Nota('La', 'natural'),
-            new Nota('Si', 'natural'),
-            new Nota('Si', 'natural'),
-            new Nota('La', 'natural'),
-            {nom:'Re', estat:'natural'},
-            {nom:'Do', estat:'natural'},
-            {nom:'Si', estat:'natural'},
-        ]
+class Partitura {
+    constructor(nom, notes) {
+        this.nom = nom;
+        this.notes = notes;
     }
+
+    contains(notes) {
+        let index = 0;
+        for (let nota of this.notes){
+            if (nota.equals(notes[index])){
+                index++;
+                if (index == notes.length) return true;
+                continue
+            }
+            index = 0;
+            if (nota.equals(notes[index])) index++;
+        }
+        return false;
+    }
+}
+
+const partitures = [
+    new Partitura(
+        'Himno de la alegría',
+        [
+            new Nota('Si', 'natural'),
+            new Nota('Si', 'natural'),
+            new Nota('Do', 'natural'),
+            new Nota('Re', 'natural'),
+            new Nota('Re', 'natural'),
+            new Nota('Do', 'natural'),
+            new Nota('Si', 'natural'),
+            new Nota('La', 'natural'),
+            new Nota('Sol', 'natural'),
+            new Nota('Sol', 'natural'),
+            new Nota('La', 'natural'),
+            new Nota('Si', 'natural'),
+            new Nota('Si', 'natural'),
+            new Nota('La', 'natural'),
+        ]
+    )
 ];
 
 function addCerca(nom, tipus, cerca) {
@@ -49,12 +67,9 @@ function addCerca(nom, tipus, cerca) {
 function cercador(cerca){
     resultat = [];
     for (let partitura of partitures){
-        console.log(partitura.notes);
-        console.log(cerca);
-        if (partitura.notes.includes(cerca)){ // no se mete al if. Por algun motivo, al crear notas identicas y compararlas, el método includes las declara distintas.
+        if (partitura.contains(cerca)){
             resultat.push(partitura);
         }
-        /* Para comparar con el metodo equals de la clase Nota, deberia hacer una clase Partitura, con un método contains, que simule el funcionamiento de includes */
     }
     console.log(resultat);
 }
