@@ -23,6 +23,8 @@ class Partitura {
         this.notes = notes;
     }
 
+    /*
+    No funciona correctamente.
     contains(notes) {
         let index = 0;
         for (let nota of this.notes){
@@ -35,6 +37,21 @@ class Partitura {
             if (nota.equals(notes[index])) index++;
         }
         return false;
+    }
+    */
+
+    contains(notes) {
+        let trobat;
+        for (let p = 0; p < this.notes.length - notes.length; p++){
+            trobat = true;
+            for (let c = 0; c < notes.length; c++){
+                if(!this.notes[p + c].equals(notes[c])){
+                    trobat = false;
+                    break;
+                }
+            }
+        }
+        return trobat;
     }
 }
 
@@ -56,6 +73,36 @@ const partitures = [
             new Nota('Si', 'natural'),
             new Nota('Si', 'natural'),
             new Nota('La', 'natural'),
+        ]
+    ),
+    new Partitura(
+        'La Balaguera',
+        [
+            new Nota("DO", "natural"),
+            new Nota("RE", "natural"),
+            new Nota("MI", "natural"),
+            new Nota("FA", "natural"),
+            new Nota("SOL", "natural"),
+            new Nota("SOL", "natural"),
+            new Nota("LA", "natural"),
+            new Nota("LA", "natural")
+        ]
+    ),
+    new Partitura(
+        'Happy Birthday',
+        [
+            new Nota("Do", "natural"),
+            new Nota("Do", "natural"),
+            new Nota("Re", "natural"),
+            new Nota("Do", "natural"),
+            new Nota("Fa", "natural"),
+            new Nota("Mi", "natural"),
+            new Nota("Do", "natural"),
+            new Nota("Do", "natural"),
+            new Nota("Re", "natural"),
+            new Nota("Do", "natural"),
+            new Nota("Sol", "#"),
+            new Nota("Fa", "#")
         ]
     )
 ];
