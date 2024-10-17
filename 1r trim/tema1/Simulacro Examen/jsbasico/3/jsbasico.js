@@ -2,7 +2,7 @@ const button = document.querySelector("button");
 
 button.onclick = function() {
     let input = document.querySelector("input");
-    document.querySelector("text").innerHTML = isAnagram(input.value);
+    document.querySelector("text").innerHTML = esAnagrama(input.value);
     input.value = "";
 }
 
