@@ -16,3 +16,7 @@ console.log(v1[0].childNodes);
 console.log(v1[0].children);
 console.log(v1[0].parentElement);
 console.log(v1[0].children[0].nextSibling);
+
+var v6 = document.createElement("h2");
+v6.innerHTML = "Hola <span style='color: red'>tú</span>"
+v1[0].appendChild(v6);
