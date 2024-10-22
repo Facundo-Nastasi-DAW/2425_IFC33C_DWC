@@ -1,0 +1,31 @@
+.poker {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    align-items: center;
+    margin: 4vh 0;
+}
+
+.hand{
+    display: flex;
+    gap: 3vw;
+    list-style: none;
+}
+
+img {
+    width: 6vw;
+    height: 16vh;
+}
+
+p{
+    color: white;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
