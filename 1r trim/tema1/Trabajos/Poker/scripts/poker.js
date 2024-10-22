@@ -44,25 +44,14 @@ function revealed(card){
     return false;
 }
 
-function noCards() {
+function noCardsLeft() {
     const message = document.querySelector("p");
     message.innerText = "No quedan más cartas en el mazo."
-}
-
-function draw(hand){
-    let newCard;
-    for (let card of hand){
-        do{
-            newCard = new Card(generateSuit(), generateNumber());
-        } while (revealedCards.length < 52 && revealed(newCard));
-        if (revealedCards.length == 52) {
-            noCards()
-            return;
-        }
-        revealedCards.push(newCard);
-        currentCards.push(newCard);
-        card.src = "assets/cards/" + newCard.number + "_of_" + newCard.suit + ".png";
-    }
+    const button = document.querySelector("button");
+    button.innerText = "Reiniciar";
+    button.addEventListener('click', () => {
+        location.reload();
+    });
 }
 
 function checkWin(){
@@ -80,14 +69,31 @@ function checkWin(){
         for (let otherCard of currentCards){
             if(!card.equals(otherCard) && card.number == otherCard.number) {
                 let winMessage = "Has ganado por las parejas ";
-                winMessage.concat(card.number, " de ", card.suit);
-                winMessage.concat(" y ", otherCard.number, " de ", otherCard.suit);
+                winMessage = winMessage.concat(card.number, " de ", card.suit);
+                winMessage = winMessage.concat(" y ", otherCard.number, " de ", otherCard.suit);
                 message.innerText = winMessage;
                 return;
             }
         }
     }
     message.innerText = "No tienes ninguna pareja, inténtalo de nuevo.";
+}
+
+function draw(hand){
+    let newCard;
+    for (let card of hand){
+        do{
+            newCard = new Card(generateSuit(), generateNumber());
+        } while (revealedCards.length < 52 && revealed(newCard));
+        if (revealedCards.length == 52) {
+            noCardsLeft()
+            return;
+        }
+        revealedCards.push(newCard);
+        currentCards.push(newCard);
+        card.src = "assets/cards/" + newCard.number + "_of_" + newCard.suit + ".png";
+    }
+    checkWin();
 }
 
 window.onload = function (){
@@ -102,6 +108,5 @@ window.onload = function (){
             setTimeout(() => message.innerText = i + 1, 1000 * i);
         }
         setTimeout(() => draw(hand), 3000);
-        setTimeout(() => checkWin(), 3000);
     });
 }
