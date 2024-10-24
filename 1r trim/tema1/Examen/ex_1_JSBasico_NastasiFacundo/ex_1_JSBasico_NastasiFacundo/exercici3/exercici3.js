@@ -9,39 +9,38 @@ function classificarPerEdat(edat) {
     // AÑADIR EL CÓDIGO DEL PUNT 1 AQUÍ
 
     /*
-    No funciona
-    switch(edat){
+        if (edat < 0){
+            classificacio = "Edat no vàlida";
+        }
+        else if (edat <= 12){
+            classificacio = "Nena/o";
+        }
+        else if (edat <= 17){
+            classificacio = "Adolescent";
+        }
+        else if (edat <= 64){
+            classificacio = "Adult";
+        }
+        else {
+            classificacio = "Persona gran";
+        }
+    */
+
+    switch(true){
         case(edat < 0):
             classificacio = "Edat no vàlida";
             break;
-        case(0 <= edat <= 12):
+        case(edat <= 12):
             classificacio = "Nena/o";
             break;
-        case(13 <= edat <= 17):
+        case(edat <= 17):
             classificacio = "Adolescent";
             break;
-        case(18 <= edat <= 64):
+        case(edat <= 64):
             classificacio = "Adult";
             break;
         default:
             classificacio = "Persona gran";
-    }
-    */
-
-    if (edat < 0){
-        classificacio = "Edat no vàlida";
-    }
-    else if (edat <= 12){
-        classificacio = "Nena/o";
-    }
-    else if (edat <= 17){
-        classificacio = "Adolescent";
-    }
-    else if (edat <= 64){
-        classificacio = "Adult";
-    }
-    else {
-        classificacio = "Persona gran";
     }
 
     return classificacio;
