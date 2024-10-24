@@ -53,7 +53,7 @@ function generarRecibo(recibo) {
         stringProd = stringProd.concat("| ");
         stringProd = stringProd.concat(String(producto.cantidad).padEnd(cajaCorta));
         stringProd = stringProd.concat("| $");
-        stringProd = stringProd.concat(String(producto.precio).padEnd(cajaLarga));
+        stringProd = stringProd.concat(String(producto.precio).padEnd(cajaLarga - 1));
         stringProd = stringProd.concat("| $");
         stringProd = stringProd.concat(String(calcularSubtotal(producto)).padEnd(cajaCorta));
         console.log(stringProd);
