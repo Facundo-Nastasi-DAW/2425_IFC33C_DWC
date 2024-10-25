@@ -10,10 +10,8 @@ class Card{
 }
 
 var revealedCards = [];
-var currentCards = [];
 
 function flush(hand){
-    currentCards = [];
     for (let card of hand){
         card.src = "assets/cards/black_joker.png";
     }
@@ -47,6 +45,7 @@ function revealed(card){
 function noCardsLeft() {
     const message = document.querySelector("p");
     message.innerText = "No quedan más cartas en el mazo."
+    
     const button = document.querySelector("button");
     button.innerText = "Reiniciar";
     button.addEventListener('click', () => {
@@ -54,7 +53,7 @@ function noCardsLeft() {
     });
 }
 
-function checkWin(){
+function checkWin(currentCards){
     /*
         Se puede optimizar?
         Se me ocurrió hacer un array con 13 elementos, todos inicializados en 0 (int).
@@ -81,6 +80,7 @@ function checkWin(){
 
 function draw(hand){
     let newCard;
+    let currentCards = [];
     for (let card of hand){
         do{
             newCard = new Card(generateSuit(), generateNumber());
@@ -93,7 +93,7 @@ function draw(hand){
         currentCards.push(newCard);
         card.src = "assets/cards/" + newCard.number + "_of_" + newCard.suit + ".png";
     }
-    checkWin();
+    checkWin(currentCards);
 }
 
 window.onload = function (){
