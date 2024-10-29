@@ -30,13 +30,13 @@ function classificarPerEdat(edat) {
         case(edat < 0):
             classificacio = "Edat no vàlida";
             break;
-        case(edat <= 12):
+        case(0 <= edat <= 12):
             classificacio = "Nena/o";
             break;
-        case(edat <= 17):
+        case(12 < edat <= 17):
             classificacio = "Adolescent";
             break;
-        case(edat <= 64):
+        case(17 < edat <= 64):
             classificacio = "Adult";
             break;
         default:
