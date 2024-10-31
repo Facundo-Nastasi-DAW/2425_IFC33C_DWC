@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        table{
+            margin-top: 15vh;
+            border-collapse: collapse;
+        }
+        tr:nth-of-type(2n) > td{
+            background-color: darkslategray;
+        }
+        td, th{
+            border: 1px solid black;
+            padding: 1rem 2rem;
+            text-align: left;
+            background-color: cadetblue;
+            color: white;
+        }
+        th{
+            background-color: darkslategray;
+        }
+    </style>
+    <script>
+        const objetos = [
+                            {
+                                "nombre":"Ivi",
+                                "alias":"Buda",
+                                "escuchaAHelen":"Si"
+                            },
+                            {
+                                "nombre":"Tomeu",
+                                "alias":"Homo Tetrus",
+                                "escuchaAHelen":"No"
+                            },
+                            {
+                                "nombre":"Helen",
+                                "alias":"Monstruo de las Quelitas",
+                                "escuchaAHelen":"No"
+                            }
+                        ];
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        let tr = document.createElement("tr");
+        let th;
+        let td;
+        for (clave in objetos[0]){
+            th = document.createElement("th");
+            th.innerText = clave;
+            tr.appendChild(th);
+        }
+        thead.appendChild(tr);
+        table.appendChild(thead);
+        const tbody = document.createElement("tbody");
+        for (objeto of objetos){
+            tr = document.createElement("tr");
+            for(clave in objeto){
+                td = document.createElement("td");
+                td.innerText = objeto[clave];
+                tr.appendChild(td); 
+            }
+            tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+        document.querySelector("body").appendChild(table);
+    </script>
+</body>
+</html>
